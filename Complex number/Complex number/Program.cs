@@ -75,8 +75,14 @@ namespace Complex_number
             c1.i = 3;
             c2.r = 7;
             c2.i = 9;
-            Complex Sum = c1 / c2;
-            Console.WriteLine(" new complex number is :{0}", Sum);
+            Console.WriteLine("{0} + {1} = {2}", c1, c2, 
+                                          c1 + c2);
+            Console.WriteLine("{0} - {1} = {2}", c1, c2, 
+                                          c1 - c2);
+            Console.WriteLine("{0} * {1} = {2}", c1, c2, 
+                                          c1 * c2);
+            Console.WriteLine("{0} / {1} = {2}", c1, c2, 
+                                          c1 / c2);
             Console.ReadKey();
 
 
