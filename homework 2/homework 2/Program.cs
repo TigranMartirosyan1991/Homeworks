@@ -115,7 +115,39 @@ namespace ConsoleApp5
             }
             return array;
         }
+            public static void quickSort(int[] array)
+        {
+            quickSort(array, 0, array.Length - 1);
+        }
 
+        public static void quickSort(int[] array, int start, int end)
+        {
+            if (start >= end)
+            {
+                return;
+            }
+            int num = array[start];
+            int i = start;
+            int j = end;
+            while (i < j)
+            {
+                while (i < j && array[j] > num)
+                {
+                    j--;
+                }
+                array[i] = array[j];
+                while (i < j && array[j] < num)
+                {
+                    i++;
+                }
+                array[j] = array[i];
+            }
+            array[i] = num;
+
+            quickSort(array, start, i - 1);
+            quickSort(array, i + 1, end);
+
+        }
 
         static void Main(string[] args)
 
@@ -143,7 +175,7 @@ namespace ConsoleApp5
                         Console.WriteLine("Insertion sort");
                         insertionSort(myArray);
                         foreach (int p in myArray)
-                            Console.Write(p + " ");
+                        Console.Write(p + " ");
                         Console.WriteLine();
                         Console.Read();
                         break;
@@ -153,7 +185,7 @@ namespace ConsoleApp5
                         Console.WriteLine("Bubble sort");
                         BubletSort(myArray);
                         foreach (int p in myArray)
-                            Console.Write(p + " ");
+                        Console.Write(p + " ");
                         Console.WriteLine();
                         Console.Read();
                         break;
@@ -163,11 +195,20 @@ namespace ConsoleApp5
                         Console.WriteLine("Merge sort");
                         MergeSort(myArray);
                         foreach (int p in myArray)
-                            Console.Write(p + " ");
+                        Console.Write(p + " ");
                         Console.WriteLine();
                         Console.Read();
                         break;
                     }
+                case 4:
+                    {
+                        Console.WriteLine("Quick sort");
+                        quickSort(myArray);
+                        foreach (int p in myArray)
+                        Console.Write(p + " ");
+                        Console.WriteLine();
+                        Console.Read();
+                        break;
                 case 6:
                     {
                         Console.WriteLine("All");
@@ -175,7 +216,7 @@ namespace ConsoleApp5
                         MergeSort(myArray);
                         insertionSort(myArray);
                         foreach (int p in myArray)
-                            Console.Write(p + " ");
+                        Console.Write(p + " ");
                         Console.WriteLine();
                         Console.Read();
                         break;
