@@ -209,6 +209,7 @@ namespace ConsoleApp5
                         Console.WriteLine();
                         Console.Read();
                         break;
+                    }
                 case 6:
                     {
                         Console.WriteLine("All");
