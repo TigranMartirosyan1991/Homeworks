@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace ConsoleApp5
     {
         static public int[] BubletSort(int[] array)
         {
+            DateTime starttime = DateTime.Now;
             int temp;
             for (int j = 0; j <= array.Length - 2; j++)
             {
@@ -24,12 +25,14 @@ namespace ConsoleApp5
                     }
                 }
             }
+            DateTime endtime = DateTime.Now;
+            Console.WriteLine(endtime - starttime);
             return array;
         }
 
         public static void MergeSort(int[] array)
         {
-
+            DateTime starttime = DateTime.Now;
             if (array.Length <= 1)
             {
                 return;
@@ -48,6 +51,8 @@ namespace ConsoleApp5
             MergeSort(left);
             MergeSort(right);
             Merge(left, right, array);
+            DateTime endtime = DateTime.Now;
+            Console.WriteLine(endtime - starttime);
         }
         private static void Merge(int[] left, int[] right, int[] array)
         {
@@ -80,9 +85,11 @@ namespace ConsoleApp5
                 j++;
                 k++;
             }
+            
         }
         static public int[] selectionSort(int[] array)
         {
+            DateTime starttime = DateTime.Now;
             int temp = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -96,11 +103,14 @@ namespace ConsoleApp5
                     }
                 }
             }
+            DateTime endtime = DateTime.Now;
+            Console.WriteLine(endtime - starttime);
             return array;
 
         }
         static public int[] insertionSort(int[] array)
         {
+            DateTime starttime = DateTime.Now;
             int temp;
             for (int i = 0; i < array.Length; i++)
             {
@@ -113,7 +123,18 @@ namespace ConsoleApp5
                     j = j - 1;
                 }
             }
+            
+            DateTime endtime = DateTime.Now;
+            Console.WriteLine(endtime - starttime);
             return array;
+           
+        }
+        public static void quickSort(int[] array)
+        {
+            DateTime starttime = DateTime.Now;
+            quickSort(array, 0, array.Length - 1);
+            DateTime endtime = DateTime.Now;
+            Console.WriteLine(endtime - starttime);
         }
         public static void quickSort(int[] array)
         {
@@ -149,11 +170,39 @@ namespace ConsoleApp5
 
         }
 
+        public static void quickSort(int[] array, int start, int end)
+        {
+            if (start >= end)
+            {
+                return;
+            }
+            int num = array[start];
+            int i = start;
+            int j = end;
+            while (i < j)
+            {
+                while (i < j && array[j] > num)
+                {
+                    j--;
+                }
+                array[i] = array[j];
+                while (i < j && array[j] < num)
+                {
+                    i++;
+                }
+                array[j] = array[i];
+            }
+            array[i] = num;
+
+            quickSort(array, start, i - 1);
+            quickSort(array, i + 1, end);
+
+        }
 
         static void Main(string[] args)
 
         {
-            DateTime starttime = DateTime.Now;
+ 
             Console.WriteLine("Please enter the size of an array that you want to sort:");
             int count = int.Parse(Console.ReadLine());
             int[] myArray = new int[count];
@@ -228,5 +277,3 @@ namespace ConsoleApp5
         }
     }
 }
-
-
