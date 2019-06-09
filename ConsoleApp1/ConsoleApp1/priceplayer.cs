@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace t
+namespace ConsoleApp1
 {
-    class Program
+   public class priceplayer
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine();
-        }
+        public int id { get; set; }
+        public string price { get; set; }
     }
 }
